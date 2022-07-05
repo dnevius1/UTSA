@@ -1,0 +1,36 @@
+#!/bin/bash
+
+#khe996 Daniel Nevius
+#Assignment 1 CS3424
+#Creates an item file with user input data. Must be positive and fewer than 6 digits
+echo "Item number: "
+read item_number
+if (( item_number < 0 )); then
+    echo "ERROR: item number cannot be negative"
+    exit 1
+fi
+if [ ${#item_number} -ge 6 ]; then
+    echo "ERROR: item number must be five or fewer digits"
+    exit 1
+fi
+mkdir -p data
+cd data
+filename=$item_number.item
+if [ -f $filename ]; then
+    echo "ERROR: item already exists"
+    exit 1
+fi
+echo "Simple name:"
+read simple_name
+echo "Item name:"
+read item_name
+echo "Current quantity:"
+read current_quantity
+echo "Maximum quantity:"
+read max_quantity
+echo "Description:"
+read description
+    printf "\n"
+    printf "$simple_name $item_name\n$current_quantity \ $max_quantity\n$description" > $item_number.item 
+    printf "\n"
+    printf "CREATED: `date +"%Y-%m-%d %T"` - $simple_name\n" >> queries.log

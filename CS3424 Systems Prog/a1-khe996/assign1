@@ -1,0 +1,31 @@
+#!/bin/bash
+#khe996 Daniel Nevius
+#Assignment 1 CS3424
+#Menu for user to create, read, update or delete an item file
+echo "Enter one of the following actions or press CTRL-D to exit.
+C - create a new item
+R - read an existing item
+U - update an existing item
+D - delete an existing item"
+while read line; do
+if [[ "$line" == "c"  ||  "$line" == "C" ]] 
+    then
+        ./create
+elif [[ "$line" == "r"  ||  "$line" == "R" ]]
+    then
+        ./read
+elif [[ "$line" == "u" || "$line" == "U" ]]
+    then
+        ./update
+elif [[ "$line" == "d" || "$line" == "D" ]]
+    then
+        ./delete
+else
+    echo "Invalid character. Enter C, R, U or D"
+fi
+echo "Enter one of the following actions or press CTRL-D to exit.
+C - create a new item
+R - read an existing item
+U - update an existing item
+D - delete an existing item"
+done

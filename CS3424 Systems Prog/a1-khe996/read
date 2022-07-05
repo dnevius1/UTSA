@@ -1,0 +1,25 @@
+#!/bin/bash
+
+#khe996 Daniel Nevius
+#Assignment 1 CS3424
+#Takes in item number to find file and echos file contents
+echo "Enter an item number:"
+read item_number
+cd data
+filename=$item_number.item
+if [ ! -f $filename ]; then
+    echo "ERROR: item not found"
+    exit 1
+fi
+{
+        read simple_name item_name
+            read current_quantity max_quantity
+                read description
+} <$filename
+printf "\n"
+echo "Item Name: $item_name"
+echo "Simple Name: $simple_name"
+echo "Item Number: $item_number"
+echo "Qty: $current_quantity / $max_quantity"
+echo "Description: $description"
+printf "\n"

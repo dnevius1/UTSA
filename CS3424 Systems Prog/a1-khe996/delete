@@ -1,0 +1,24 @@
+#!/bin/bash
+
+#khe996 Daniel Nevius
+#Assignment 1 CS3424
+#Takes in an item number and finds matching file to delete. Updates queries.log
+#with time and date deleted.
+echo "Enter an item number:"
+read item_number
+cd data
+filename=$item_number.item
+if [ ! -f $filename ]; then
+    echo "ERROR: item not found"
+    exit 1
+fi
+{ IFS= read -r line1; } < $filename
+rm $filename
+IFS=' '
+read -a strarr <<<$line1
+simple_name=${strarr[0]}
+printf "\n"
+printf "$simple_name was successfully deleted."
+printf "DELETED: `date +"%Y-%m-%d %T"` - $simple_name\n" >> queries.log
+
+printf "\n"

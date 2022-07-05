@@ -1,0 +1,51 @@
+#!/bin/bash
+
+#khe996 Daniel Nevius
+#Assignment 1 CS3424
+#Finds file using item number to update file with new user input
+#If input is left blank it keeps old values in file. Updates queries.log
+#with time and date
+echo "Item number:"
+read item_number
+cd data
+filename=$item_number.item
+if [ ! -f $filename ]; then
+    echo "ERROR: item not found"
+    exit 1
+fi
+echo "Simple name:"
+read simple_name
+echo "Item name:"
+read item_name
+echo "Current quantity:"
+read current_quantity
+echo "Maximum quantity:"
+read max_quantity
+echo "Description:"
+read description
+
+{
+        read cur_simple_name cur_item_name
+            read cur_current_quantity cur_max_quantity
+                read cur_description
+} <$filename
+if [ -z "$simple_name" ]; then
+    simple_name=$cur_simple_name
+fi
+if [ -z "$item_name" ]; then
+    item_name=$cur_item_name
+fi
+if [ -z "$current_quantity" ]; then
+    current_quantity=$cur_current_quantity
+fi
+if [ -z "$max_quantity" ]; then
+    max_quantity=$cur_max_quantity
+fi
+if [ -z "$description" ]; then
+    description=$cur_description
+fi
+printf "\n"
+printf "$simple_name $item_name \n$current_quantity $max_quantity \n$description" > $item_number.item 
+printf "UPDATED: `date +"%Y-%m-%d %T"` - $simple_name\n" >> queries.log
+
+printf "\n"
