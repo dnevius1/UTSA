@@ -1,0 +1,16 @@
+
+
+Uses an uninformed search to graph the spread of a virus across Texas cities. Implements an informed search to find an optimal strategy to transport a vaccine:
+https://colab.research.google.com/drive/14F-sYyO_O06Kj9CAVvfzWFUdfZ5ha7OK#scrollTo=NM8b9KVYsETT
+
+
+AI chessboard using minmax function(Does not reach checkmate or other end-state. Something is off with the minmax implementation):
+https://colab.research.google.com/drive/1aX5V4l0m1ANNt2MQEGd5_zTpzJp_4etZ#scrollTo=lYxmgcnes9cS
+
+
+Stochastic Gradient Descent and ID3 Decision Tree:
+https://colab.research.google.com/drive/1U1YwXuEIL1YvIA8HbZjTmxQRQu7o7sR2#scrollTo=V5njAQvmPmOC
+
+
+Deep learning - Computer vision and natural language processing using CNN and RNN:
+https://colab.research.google.com/drive/17AcQCNhN5nRnNc0FYnVNJe01LSC0I3Tx
